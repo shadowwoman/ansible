@@ -12,3 +12,7 @@
          data: 
            target_active: "true"
        when: active_node.stdout=="{{target}}"
+       
+     - name: Relocate service if the target is the active node
+       shell: pcs cluster standby "{{target}}"
+       when: active_node.stdout=="{{target}}"
