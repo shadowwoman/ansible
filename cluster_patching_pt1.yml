@@ -1,0 +1,14 @@
+---
+   - name: Confirm which is the active node and failover if needed
+     hosts: "{{target}}"
+     tasks:
+
+     - name: Confirm which node is actively running the service
+       shell: pcs status | grep "{{service_name}}" | awk '{print $NF}'
+       register: active_node
+
+     - name: Record that the target is the active node
+       set_stats:
+         data: 
+           target_active: "true"
+       when: active_node.stdout=="{{target}}"
