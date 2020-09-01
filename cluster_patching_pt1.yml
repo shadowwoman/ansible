@@ -6,12 +6,6 @@
      - name: Confirm which node is actively running the service
        shell: pcs status | grep "{{service_name}}" | awk '{print $NF}'
        register: active_node
-
-     - name: Record that the target is the active node
-       set_stats:
-         data: 
-           target_active: "true"
-       when: active_node.stdout=="{{target}}"
        
      - name: Relocate service if the target is the active node
        shell: pcs cluster standby "{{target}}"
