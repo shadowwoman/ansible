@@ -1,7 +1,8 @@
 ---
 - name: Confirm which node is actively running the service
-   shell: pcs status | grep "{{service_name}}" | awk '{print $NF}'
-   register: active_node
-#- name: Set active node as fact
-#  set_fact: 
-#    active_cluster_node: {{ active_node.stdout }}
+  shell: "pcs status | grep {{ service_name }} | awk '{print $NF}'"
+  register: active_node
+
+- name: Set active node as fact
+  set_fact:
+    active_cluster_node: "{{ active_node.stdout }}"
