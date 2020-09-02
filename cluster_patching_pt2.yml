@@ -3,5 +3,5 @@
      hosts: "{{target}}"
      tasks:
 
-     - name: Unstandby the target node
-       shell: pcs cluster unstandby "{{target}}"
+     - name: Reboot the target node to test
+       reboot: 
