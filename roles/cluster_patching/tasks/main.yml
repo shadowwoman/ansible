@@ -11,5 +11,5 @@
 - include_tasks: check_standby.yml
   when: "cluster_state == 'check_standby'"
 
-- include_task: unstandby.yml
+- include_tasks: unstandby.yml
   when: "cluster_state == 'unstandby'"
