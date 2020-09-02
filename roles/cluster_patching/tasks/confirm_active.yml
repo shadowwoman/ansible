@@ -1,0 +1,3 @@
+ - name: Confirm which node is actively running the service
+   shell: pcs status | grep "{{service_name}}" | awk '{print $NF}'
+   register: active_node

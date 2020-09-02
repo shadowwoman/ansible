@@ -1,0 +1,15 @@
+---
+- include_tasks: confirm_active.yml
+  when: "cluster_state == 'confirm_active'"
+
+- include_tasks: set_standby.yml
+  when: "cluster_state == 'set_standby'"
+
+- include_tasks: cluster_patch.yml
+  when: "cluster_state == 'cluster_patch'"
+
+- include_tasks: check_standby.yml
+  when: "cluster_state == 'check_standby'"
+
+- include_task: unstandby.yml
+  when: "cluster_state == 'unstandby'"

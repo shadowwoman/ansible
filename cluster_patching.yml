@@ -1,0 +1,5 @@
+---
+- name: Perform Cluster Patching
+  hosts: "{{target}}"
+  roles:
+    - role: cluster_patching
