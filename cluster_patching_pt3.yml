@@ -4,7 +4,7 @@
      tasks:
 
      - name: Confirm which node is actively running the service
-       shell: pcs status | grep standby | awk '{print $2}'| cut -d: -f1
+       shell: "pcs status | grep standby | awk '{print $2}'| cut -d: -f1"
        register: standby_node
        
      - name: Reverse standby command from previous playbook
