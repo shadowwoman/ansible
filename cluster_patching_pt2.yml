@@ -1,1 +1,7 @@
 ---
+   - name: Confirm which is the active node and failover if needed
+     hosts: "{{target}}"
+     tasks:
+
+     - name: Unstandby the target node
+       shell: pcs cluster unstandby "{{target}}"
