@@ -5,4 +5,3 @@
 
      - name: Reverse standby command from previous playbook
        shell: pcs cluster unstandby "{{target}}"
-       when: target_active=="true"
