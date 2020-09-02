@@ -2,5 +2,6 @@
    shell: pcs status | grep "{{service_name}}" | awk '{print $NF}'
    register: active_node
 
-- set_fact: 
-  active_cluster_node: "{{ active_node.stdout }}"
+- name: Set active node as fact
+  set_fact: 
+    active_cluster_node: "{{ active_node.stdout }}"
