@@ -5,4 +5,4 @@
 
 - name: Set active node as fact
   set_fact: 
-    active_cluster_node: "{{ active_node.stdout }}"
+    active_cluster_node: {{ active_node.stdout }}
