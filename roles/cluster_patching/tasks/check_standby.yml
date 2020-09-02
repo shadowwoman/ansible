@@ -2,3 +2,7 @@
 - name: Confirm which node is actively running the service
   shell: "pcs status | grep standby | awk '{print $2}'| cut -d: -f1"
   register: standby_node
+
+- name: Set fact for standby node
+  set_fact:
+    standby_cluster_node: "{{ standby_node.stdout }}"
