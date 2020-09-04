@@ -9,7 +9,7 @@
 
 - name: Record acive node to file
   copy: 
-    content: "{{ active_node }}"
+    content: "{{ active_node.stdout_lines }}"
     dest: /tmp/active_node.txt
 #  delegate_to: localhost
   run_once: true
