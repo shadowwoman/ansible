@@ -2,7 +2,11 @@
 - name: Register standby node from file
   shell: "cat /tmp/standby_node.txt"
   register: recorded_standby_node
-  
+
+- name: Set fact for recorded active node
+  set_fact:
+    recorded_standby_cluster_node: "{{ recorded_standby_node.stdout }}"
+
 - name: Reverse standby command from previous playbook
   shell: "pcs cluster unstandby {{target}}"
-  when: "{{recorded_standby_node.stdout}} == {{target}}"
+  when: "{{recorded_standby_cluster_node}} == {{target}}"
