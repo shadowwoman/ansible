@@ -9,4 +9,4 @@
     
 - name: Relocate service if the target is the active node
   shell: "pcs cluster standby {{target}}"
-  when: "{{recorded_active_cluster_node}} == {{target}}"
+  when: "recorded_active_cluster_node == {{target}}"
