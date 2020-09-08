@@ -1,4 +1,8 @@
 ---
+- name: Register active node from file
+  shell: "cat /tmp/active_node.txt"
+  register: recorded_active_node
+
 - name: Relocate service if the target is the active node
   shell: "pcs cluster standby {{target}}"
-  when: "`cat /tmp/active_node.txt` == {{target}}"
+  when: "{{recorded_active_node.stdout }} == {{target}}"
