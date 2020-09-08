@@ -8,6 +8,7 @@
     active_cluster_node: "{{ active_node.stdout }}"
 
 - name: Record acive node to file
+  become: false
   copy: 
     content: "{{ active_cluster_node }}"
     dest: ~/tmp/active_node.txt
