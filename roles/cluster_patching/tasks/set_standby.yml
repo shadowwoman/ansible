@@ -5,4 +5,4 @@
 
 - name: Relocate service if the target is the active node
   shell: "pcs cluster standby {{target}}"
-  when: "{{recorded_active_node.stdout }} == {{target}}"
+  when: "{{recorded_active_node.stdout}} == {{target}}"
