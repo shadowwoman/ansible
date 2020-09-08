@@ -1,4 +1,8 @@
 ---
+- name: Register standby node from file
+  shell: "cat /tmp/standby_node.txt"
+  register: recorded_standby_node
+  
 - name: Reverse standby command from previous playbook
   shell: "pcs cluster unstandby {{target}}"
-  when: "`cat /tmp/standby_node.txt` == {{target}}"
+  when: "{{recorded_standby_node.stdout}} == {{target}}"
