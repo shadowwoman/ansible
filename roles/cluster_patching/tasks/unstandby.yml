@@ -9,4 +9,4 @@
 
 - name: Reverse standby command from previous playbook
   shell: "pcs cluster unstandby {{target}}"
-  when: "{{recorded_standby_cluster_node}} == {{target}}"
+  when: "recorded_standby_cluster_node == {{target}}"
