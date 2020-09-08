@@ -11,6 +11,6 @@
   become: false
   copy: 
     content: "{{ active_cluster_node }}"
-    dest: /home/ansible/active_node.txt
-  delegate_to: localhost
+    dest: /tmp/active_node.txt
+#  delegate_to: localhost
   run_once: true
