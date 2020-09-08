@@ -3,13 +3,13 @@
   shell: "pcs status | grep '{{ service_name }}' | awk '{print $NF}'"
   register: active_node
 
-#- name: Set active node as fact
-#  set_fact:
-#    active_cluster_node: "{{ active_node.stdout }}"
+- name: Set active node as fact
+  set_fact:
+    active_cluster_node: "{{ active_node.stdout }}"
 
 - name: Record acive node to file
   copy: 
-    content: "{{ active_node.stdout_lines }}"
+    content: "{{ active_cluster_node }}"
     dest: /tmp/active_node.txt
 #  delegate_to: localhost
   run_once: true
