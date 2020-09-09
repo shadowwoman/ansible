@@ -6,7 +6,7 @@
 - name: Set fact for recorded active node
   set_fact:
     recorded_active_cluster_node: "{{ recorded_active_node.stdout }}"
-    
+
 - name: Relocate service if the target is the active node
   shell: "pcs cluster standby {{target}}"
   when: "recorded_active_cluster_node == target"

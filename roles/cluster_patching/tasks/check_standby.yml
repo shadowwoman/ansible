@@ -8,8 +8,8 @@
     standby_cluster_node: "{{ standby_node.stdout }}"
 
 - name: Record standby node to file
-  copy: 
-  content: "{{ standby_cluster_node }}"
-    dest: /tmp/standby_node.txt
+  copy:
+    content: "{{ standby_cluster_node }}"
+    dest: "/tmp/standby_node.txt"
 #  delegate_to: localhost
   run_once: true

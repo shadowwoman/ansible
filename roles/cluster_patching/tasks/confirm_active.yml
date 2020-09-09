@@ -9,8 +9,8 @@
 
 - name: Record acive node to file
   become: false
-  copy: 
+  copy:
     content: "{{ active_cluster_node }}"
-    dest: /tmp/active_node.txt
+    dest: "/tmp/active_node.txt"
 #  delegate_to: localhost
   run_once: true
