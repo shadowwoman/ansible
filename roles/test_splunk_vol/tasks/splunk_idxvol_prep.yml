@@ -1,0 +1,27 @@
+---
+
+- name: Create partition for LVM
+  parted:
+    device: "{{block_device}}"
+    number: 1
+    name: "{{idx_lv_name}}"
+    flags: [lvm]
+    state: present
+    part_end: "{{idx_vol_size}}"
+    label: gpt
+
+- name: Create PV and VG
+  lvg:
+    vg: "{{vg_name}}"
+    pvs: "{{block_device}}1"
+
+- name: Create LV
+  lvol:
+    vg: "{{vg_name}}"
+    lv: "{{idx_lv_name}}"
+    size: 100%FREE
+
+- name: Create filesystem
+  filesystem:
+    fstype: "{{ fs_type }}"
+    dev: "/dev/mapper/{{vg_name}}-{{idx_lv_name}}"

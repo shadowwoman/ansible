@@ -1,0 +1,9 @@
+---
+
+- name: Un-mount volume and remove from fstab
+  mount:
+    path: "{{idx_mount_point}}"
+    state: '{{ item }}'
+  with_items:
+    - unmounted
+    - absent

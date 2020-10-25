@@ -1,0 +1,17 @@
+---
+
+- name: Remove LV
+  lvol:
+    vg: "{{vg_name}}"
+    lv: "{{idx_lv_name}}"
+    state: absent
+    force: true
+
+- name: Remove VG
+  lvg:
+    vg: "{{vg_name}}"
+    state: absent
+    force: true
+
+# - name: Remove device mapping
+#   shell: "dmsetup remove /dev/{{vg_name}}-{{idx_lv_name}}"
