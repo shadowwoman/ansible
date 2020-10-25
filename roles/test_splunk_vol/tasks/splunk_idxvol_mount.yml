@@ -6,7 +6,7 @@
     src: "/dev/mapper/{{vg_name}}-{{idx_lv_name}}"
     fstype: xfs
     opts: "{{mount_options}}"
-    state: '{{ item }}'
+    state: '{{item}}'
   with_items:
     - mounted
     - present
