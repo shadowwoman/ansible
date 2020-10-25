@@ -1,6 +1,6 @@
 ---
 - include_tasks: splunk_idxvol_prep.yml
-  when: "volume_change == 'idxvol_mount'"
+  when: "volume_change == 'idxvol_prep'"
 
 - include_tasks: splunk_idxvol_mount.yml
   when: "volume_change == 'idxvol_mount'"
