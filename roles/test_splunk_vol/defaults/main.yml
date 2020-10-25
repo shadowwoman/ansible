@@ -6,6 +6,6 @@ vg_name: vg_splunk
 mount_options: defaults,nodev,nosuid
 #  when: "'imlspidx' in ansible_hostname"
 idx_mount_point: /opt/app/splunk/data/
-idx_vol_size: 1.5TB
+idx_vol_size: 1GB
 idx_lv_name: data
 
