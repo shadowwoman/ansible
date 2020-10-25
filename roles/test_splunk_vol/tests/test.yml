@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - splunk_vol
+    - test_splunk_vol
