@@ -1,0 +1,5 @@
+---
+- name: Test Splunk Volume Role
+  hosts: "{{target}}"
+  roles:
+    - role: test_splunk_vol
