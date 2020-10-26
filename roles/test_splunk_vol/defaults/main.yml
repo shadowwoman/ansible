@@ -1,10 +1,10 @@
 ---
 
-block_device: /dev/xvdb
+block_device: /dev/sdb
 fs_type: xfs
 vg_name: vg_splunk
 mount_options: defaults,nodev,nosuid
 idx_mount_point: /opt/app/splunk/data/
-idx_vol_size: 1GB
+idx_vol_size: 1.5GB
 idx_lv_name: data
 
