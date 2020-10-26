@@ -13,5 +13,11 @@
     state: absent
     force: true
 
+- name: Remove partition
+  parted:
+    device: "{{block_device}}"
+    number: 1
+    state: absent
+
 # - name: Remove device mapping
 #   shell: "dmsetup remove /dev/{{vg_name}}-{{idx_lv_name}}"
