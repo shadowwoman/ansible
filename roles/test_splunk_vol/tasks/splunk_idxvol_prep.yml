@@ -23,5 +23,5 @@
 
 - name: Create filesystem
   filesystem:
-    fstype: "{{ fs_type }}"
+    fstype: "{{fs_type}}"
     dev: "/dev/mapper/{{vg_name}}-{{idx_lv_name}}"
